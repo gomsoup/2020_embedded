@@ -2,7 +2,7 @@
 
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armjlink2.dll" 
 
-"C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\Flash\Exe\uCOS-III-Ex2.out" 
+"C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\Flash\Exe\uCOS-III-Ex2.out" 
 
 --plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armbat.dll" 
 

@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\settings\uCOS-III-Ex2.Flash.general.xcl" --backend -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\settings\uCOS-III-Ex2.Flash.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\settings\uCOS-III-Ex2.Flash.general.xcl" --backend -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\settings\uCOS-III-Ex2.Flash.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\settings\uCOS-III-Ex2.Flash.general.xcl" "--debug_file=%~1" --backend -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\settings\uCOS-III-Ex2.Flash.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\settings\uCOS-III-Ex2.Flash.general.xcl" "--debug_file=%~1" --backend -f "C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\settings\uCOS-III-Ex2.Flash.driver.xcl" 
 
 @echo off 
 :end

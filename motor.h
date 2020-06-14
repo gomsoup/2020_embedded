@@ -19,7 +19,7 @@ static CPU_STK  motor_stack[MOTOR_TASK_STK_SIZE];
 static OS_MUTEX motor_mutex;
 static OS_Q     motor_q;
 
-static int motor_bit = MOTOR_STOP;
+static int motor_bit;
 
 typedef struct _motor{
     GPIO_TypeDef *GPIO;
@@ -28,7 +28,9 @@ typedef struct _motor{
     CPU_INT32U PWM;
 }motor;
 
-void send_motor_msg(CPU_INT32U type);
+void motor_get_mutex();
+void motor_release_mutex();
+void motor_set_bit(CPU_INT32U type);
 
 void motor_init();
 void stop();

@@ -1,9 +1,9 @@
 lib_str.pbi: C:\Micrium\Software\uC-LIB\lib_str.c \
   C:\Micrium\Software\uC-LIB\lib_str.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uC-CPU\ARM-Cortex-M3\IAR\cpu.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uC-CPU\cpu_def.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\cpu_cfg.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\..\..\..\..\uC-CPU\ARM-Cortex-M3\IAR\cpu.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\..\..\..\..\uC-CPU\cpu_def.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\cpu_cfg.h \
   C:\Micrium\Software\uC-LIB\lib_def.h \
   C:\Micrium\Software\uC-LIB\lib_ascii.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\app_cfg.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\lib_cfg.h
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\app_cfg.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\lib_cfg.h

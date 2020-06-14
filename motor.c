@@ -8,10 +8,6 @@ void set_motor(int _motor_bit){
 }
 
 void stop(){
-    OS_ERR err;
-    CPU_TS ts;
- 
-    OSMutexPend((OS_MUTEX *)&motor_mutex, (OS_TICK   )0, (OS_OPT    )OS_OPT_PEND_BLOCKING, (CPU_TS   *)&ts,(OS_ERR   *)&err);
     
     GPIO_ResetBits(m1.GPIO, m1.EN);
     GPIO_SetBits(m1.GPIO, m1.DIR); // DIR0
@@ -21,45 +17,27 @@ void stop(){
     GPIO_SetBits(m2.GPIO, m2.DIR);
     GPIO_SetBits(m2.GPIO, m2.PWM);
     
-    OSMutexPost((OS_MUTEX *)&motor_mutex, (OS_OPT    )OS_OPT_POST_NONE, (OS_ERR    *)&err);
 }
 
 void right_turn(){
-    OS_ERR err;
-    CPU_TS ts;
-    
-    OSMutexPend((OS_MUTEX *)&motor_mutex, (OS_TICK   )0, (OS_OPT    )OS_OPT_PEND_BLOCKING, (CPU_TS   *)&ts,(OS_ERR   *)&err);
-    
     GPIO_SetBits(m1.GPIO, m1.EN);  // EN0
     GPIO_SetBits(m1.GPIO, m1.DIR); // DIR0
     GPIO_ResetBits(m1.GPIO , m1.PWM); // PWM0
     
     GPIO_ResetBits(m2.GPIO, m2.EN);
     
-    OSMutexPost((OS_MUTEX *)&motor_mutex, (OS_OPT    )OS_OPT_POST_NONE, (OS_ERR    *)&err);
 }
 
 void left_turn(){
-    OS_ERR err;
-    CPU_TS ts;
-    
-    OSMutexPend((OS_MUTEX *)&motor_mutex, (OS_TICK   )0, (OS_OPT    )OS_OPT_PEND_BLOCKING, (CPU_TS   *)&ts,(OS_ERR   *)&err);
-    
     GPIO_ResetBits(m1.GPIO, m1.EN);  // EN0
     
     GPIO_SetBits(m2.GPIO, m2.EN);
     GPIO_SetBits(m2.GPIO, m2.DIR);
     GPIO_ResetBits(m2.GPIO, m2.PWM);
     
-    OSMutexPost((OS_MUTEX *)&motor_mutex, (OS_OPT    )OS_OPT_POST_NONE, (OS_ERR    *)&err);
 }
 
 void go_straight(){
-    OS_ERR err;
-    CPU_TS ts;
- 
-    OSMutexPend((OS_MUTEX *)&motor_mutex, (OS_TICK   )0, (OS_OPT    )OS_OPT_PEND_BLOCKING, (CPU_TS   *)&ts,(OS_ERR   *)&err);
-    
     GPIO_SetBits(m1.GPIO, m1.EN);  // EN0
     GPIO_SetBits(m1.GPIO, m1.DIR); // DIR0
     GPIO_ResetBits(m1.GPIO, m1.PWM); // PWM0
@@ -68,15 +46,9 @@ void go_straight(){
     GPIO_SetBits(m2.GPIO, m2.DIR);
     GPIO_ResetBits(m2.GPIO, m2.PWM);
         
-    OSMutexPost((OS_MUTEX *)&motor_mutex, (OS_OPT    )OS_OPT_POST_NONE, (OS_ERR    *)&err);
 }
 
 void go_backward(){
-    OS_ERR err;
-    CPU_TS ts;
- 
-    OSMutexPend((OS_MUTEX *)&motor_mutex, (OS_TICK   )0, (OS_OPT    )OS_OPT_PEND_BLOCKING, (CPU_TS   *)&ts,(OS_ERR   *)&err);
-    
     GPIO_SetBits(m1.GPIO, m1.EN);  // EN0
     GPIO_ResetBits(m1.GPIO, m1.DIR); // DIR0
     GPIO_ResetBits(m1.GPIO, m1.PWM); // PWM0
@@ -84,8 +56,6 @@ void go_backward(){
     GPIO_SetBits(m2.GPIO, m2.EN);
     GPIO_ResetBits(m2.GPIO, m2.DIR);
     GPIO_ResetBits(m2.GPIO, m2.PWM);
-            
-    OSMutexPost((OS_MUTEX *)&motor_mutex, (OS_OPT    )OS_OPT_POST_NONE, (OS_ERR    *)&err);
 }
 
 
@@ -179,6 +149,24 @@ void motor_init(){
     
 }
 
+void motor_get_mutex(){
+    OS_ERR err;
+    CPU_TS ts;
+ 
+    OSMutexPend((OS_MUTEX *)&motor_mutex, (OS_TICK   )0, (OS_OPT    )OS_OPT_PEND_BLOCKING, (CPU_TS   *)&ts,(OS_ERR   *)&err);
+}
+
+void motor_release_mutex(){
+    OS_ERR err;
+    CPU_TS ts;
+ 
+    OSMutexPost((OS_MUTEX *)&motor_mutex, (OS_OPT    )OS_OPT_POST_NONE, (OS_ERR    *)&err);
+}
+
+void motor_set_bit(CPU_INT32U type){
+    motor_bit = type;
+}
+
 void send_motor_msg(CPU_INT32U type){
     OS_ERR err;
     OSQPost((OS_Q      *)&motor_q,
@@ -186,6 +174,7 @@ void send_motor_msg(CPU_INT32U type){
             (OS_MSG_SIZE)sizeof(void *),
             (OS_OPT     )OS_OPT_POST_FIFO,
             (OS_ERR    *)&err);
+    
 }
 
 void motor_task(){
@@ -194,11 +183,14 @@ void motor_task(){
     OS_MSG_SIZE size;
     CPU_TS       ts;
     
+    motor_bit = MOTOR_STOP;
     motor_init();
+    
     OSMutexCreate((OS_MUTEX    *)&motor_mutex, (CPU_CHAR    *)"App Mutex", (OS_ERR      *)&err);
     OSQCreate((OS_Q *)&motor_q, (CPU_CHAR *)"Motor queue", (OS_MSG_QTY)20, (OS_ERR *)&err);
     
     while(DEF_TRUE){
+        /*
         q_msg = (CPU_INT32U)OSQPend((OS_Q        *)&motor_q,
                                     (OS_TICK      )10000 * 10,
                                     (OS_OPT       )OS_OPT_PEND_BLOCKING,
@@ -208,7 +200,8 @@ void motor_task(){
         if(err == OS_ERR_TIMEOUT) stop();
         
         printf("MOTOR MESSAGE QUEUE: %d\n", q_msg);
-        switch(q_msg){
+  */
+        switch(motor_bit){
         case MOTOR_STOP:
             stop();
             break;        
@@ -228,5 +221,6 @@ void motor_task(){
             stop();
             break;
         }
+    
     }     
 }

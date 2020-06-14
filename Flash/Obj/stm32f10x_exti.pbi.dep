@@ -1,8 +1,8 @@
 stm32f10x_exti.pbi: \
   C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\BSP\ST\STM32\src\stm32f10x_exti.c \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\BSP\ST\STM32\inc\stm32f10x_exti.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\BSP\ST\STM32\inc/stm32f10x_map.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\stm32f10x_conf.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\BSP\ST\STM32\inc\stm32f10x_type.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\BSP\ST\STM32\inc/stm32f10x_type.h \
-  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\BSP\ST\STM32\inc/cortexm3_macro.h
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\BSP\ST\STM32\inc\stm32f10x_exti.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\BSP\ST\STM32\inc/stm32f10x_map.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\stm32f10x_conf.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\BSP\ST\STM32\inc\stm32f10x_type.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\BSP\ST\STM32\inc/stm32f10x_type.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\2020_embedded\..\BSP\ST\STM32\inc/cortexm3_macro.h

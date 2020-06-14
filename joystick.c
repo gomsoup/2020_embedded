@@ -67,9 +67,11 @@ void joystick_task(){
           result = MOTOR_STOP;
       else if (coord[0] < 1500) 
           result = MOTOR_LEFT;
-    
-               
-      printf("JOYSTICK -> MOTOR :  %d\n", result);
-      send_motor_msg(result);
+        
+      motor_get_mutex();
+      motor_set_bit(result);
+      motor_release_mutex();
+      //printf("JOYSTICK -> MOTOR :  %d\n", result);
+      //send_motor_msg(result);
     }
 }
