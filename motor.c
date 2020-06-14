@@ -165,6 +165,27 @@ void motor_release_mutex(){
 
 void motor_set_bit(CPU_INT32U type){
     motor_bit = type;
+    
+    switch(motor_bit){
+        case MOTOR_STOP:
+            stop();
+            break;        
+        case MOTOR_STRAIGHT:
+            go_straight();
+            break;
+        case MOTOR_BACK:
+            go_backward();
+            break;
+        case MOTOR_LEFT:
+            left_turn();
+            break;
+        case MOTOR_RIGHT:
+            right_turn();
+            break;
+        default:
+            stop();
+            break;
+   }
 }
 
 void send_motor_msg(CPU_INT32U type){
@@ -189,8 +210,9 @@ void motor_task(){
     OSMutexCreate((OS_MUTEX    *)&motor_mutex, (CPU_CHAR    *)"App Mutex", (OS_ERR      *)&err);
     OSQCreate((OS_Q *)&motor_q, (CPU_CHAR *)"Motor queue", (OS_MSG_QTY)20, (OS_ERR *)&err);
     
+    /*
     while(DEF_TRUE){
-        /*
+        
         q_msg = (CPU_INT32U)OSQPend((OS_Q        *)&motor_q,
                                     (OS_TICK      )10000 * 10,
                                     (OS_OPT       )OS_OPT_PEND_BLOCKING,
@@ -200,27 +222,8 @@ void motor_task(){
         if(err == OS_ERR_TIMEOUT) stop();
         
         printf("MOTOR MESSAGE QUEUE: %d\n", q_msg);
-  */
-        switch(motor_bit){
-        case MOTOR_STOP:
-            stop();
-            break;        
-        case MOTOR_STRAIGHT:
-            go_straight();
-            break;
-        case MOTOR_BACK:
-            go_backward();
-            break;
-        case MOTOR_LEFT:
-            left_turn();
-            break;
-        case MOTOR_RIGHT:
-            right_turn();
-            break;
-        default:
-            stop();
-            break;
-        }
+  
     
     }     
+*/
 }
