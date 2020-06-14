@@ -348,10 +348,6 @@
             <name>$PROJ_DIR$\app.c</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 90</file>
-                </tool>
-                <tool>
                     <name>BICOMP</name>
                     <file> 108</file>
                 </tool>
