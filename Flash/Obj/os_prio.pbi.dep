@@ -1,0 +1,15 @@
+os_prio.pbi: C:\Micrium\Software\uCOS-III\Source\os_prio.c \
+  C:\Micrium\Software\uCOS-III\Source\os.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\os_cfg.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uC-CPU\ARM-Cortex-M3\IAR\cpu.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uC-CPU\cpu_def.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\cpu_cfg.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uC-CPU\cpu_core.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uc-lib\lib_def.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uc-lib\lib_mem.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\app_cfg.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\lib_cfg.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uc-lib\lib_str.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uc-lib\lib_ascii.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\os_type.h \
+  C:\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\IAR\uCOS-III-Ex2\..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\IAR\os_cpu.h
