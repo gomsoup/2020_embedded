@@ -12,10 +12,13 @@
 #define MOTOR_STRAIGHT  1
 #define MOTOR_RIGHT     2
 #define MOTOR_LEFT      3
+#define MOTOR_BACK      4
 
 static OS_TCB   motor_tcb;
 static CPU_STK  motor_stack[MOTOR_TASK_STK_SIZE];
 static OS_MUTEX motor_mutex;
+static OS_Q     motor_q;
+
 static int motor_bit = MOTOR_STOP;
 
 typedef struct _motor{
@@ -25,7 +28,7 @@ typedef struct _motor{
     CPU_INT32U PWM;
 }motor;
 
-void set_motor(int _motor_bit);
+void send_motor_msg(CPU_INT32U type);
 
 void motor_init();
 void stop();

@@ -179,31 +179,44 @@ void motor_init(){
     
 }
 
+void send_motor_msg(CPU_INT32U type){
+    OS_ERR err;
+    OSQPost((OS_Q      *)&motor_q,
+            (void      *)type,
+            (OS_MSG_SIZE)sizeof(void *),
+            (OS_OPT     )OS_OPT_POST_FIFO,
+            (OS_ERR    *)&err);
+}
 
 void motor_task(){
-    OS_ERR err;
+    OS_ERR      err;
+    CPU_INT32U  q_msg;
+    OS_MSG_SIZE size;
+    CPU_TS       ts;
     
     motor_init();
-    motor_bit = MOTOR_STOP;
-
-/*    
-    go_straight();
-    OSTimeDlyHMSM(0,0,1,0, OS_OPT_TIME_HMSM_STRICT, &err);
+    OSMutexCreate((OS_MUTEX    *)&motor_mutex, (CPU_CHAR    *)"App Mutex", (OS_ERR      *)&err);
+    OSQCreate((OS_Q *)&motor_q, (CPU_CHAR *)"Motor queue", (OS_MSG_QTY)20, (OS_ERR *)&err);
     
-    right_turn();
-    OSTimeDlyHMSM(0,0,1,0, OS_OPT_TIME_HMSM_STRICT, &err);
-    
-    stop();
-  
     while(DEF_TRUE){
+        q_msg = (CPU_INT32U)OSQPend((OS_Q        *)&motor_q,
+                                    (OS_TICK      )10000 * 10,
+                                    (OS_OPT       )OS_OPT_PEND_BLOCKING,
+                                    (OS_MSG_SIZE *)&size,
+                                    (CPU_TS      *)&ts,
+                                    (OS_ERR      *)&err);
+        if(err == OS_ERR_TIMEOUT) stop();
         
-        printf("motor : %d\n", motor_bit);
-      switch(motor_bit){
+        printf("MOTOR MESSAGE QUEUE: %d\n", q_msg);
+        switch(q_msg){
         case MOTOR_STOP:
             stop();
-            break;
+            break;        
         case MOTOR_STRAIGHT:
             go_straight();
+            break;
+        case MOTOR_BACK:
+            go_backward();
             break;
         case MOTOR_LEFT:
             left_turn();
@@ -214,8 +227,6 @@ void motor_task(){
         default:
             stop();
             break;
-        
-      } 
+        }
     }     
-*/
 }

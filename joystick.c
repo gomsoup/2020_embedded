@@ -53,18 +53,23 @@ void joystick_init(){
 
 void joystick_task(){
     joystick_init();
-    int adc_val = 1600;
     
     while(DEF_TRUE){
+      int result = MOTOR_STOP;
+
       if(coord[1] > 3000)
-          go_straight();
+          result = MOTOR_STRAIGHT;
       else if (coord[2] < 1000)
-          go_backward();
+          result = MOTOR_BACK;
       else if( coord[0] > 3000) 
-          right_turn(); 
+          result = MOTOR_RIGHT;
       else if (coord[0] > 1500 && coord[0] < 3000) 
-          stop(); 
+          result = MOTOR_STOP;
       else if (coord[0] < 1500) 
-          left_turn();
+          result = MOTOR_LEFT;
+    
+               
+      printf("JOYSTICK -> MOTOR :  %d\n", result);
+      send_motor_msg(result);
     }
 }

@@ -6,7 +6,7 @@
 
 #define JOYSTICK_TASK_STK_SIZE 64
 #define JOYSTICK_TASK_PRIO 3
-#define JOYSTICK_CLOCK_TICK 1
+#define JOYSTICK_CLOCK_TICK 3
 #define JOYSTICK_STACK_SIZE 64
 
 static OS_TCB   joystick_tcb;
