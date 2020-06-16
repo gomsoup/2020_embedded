@@ -203,6 +203,8 @@ void motor_task(){
     CPU_INT32U  q_msg;
     OS_MSG_SIZE size;
     CPU_TS       ts;
+	
+	printf("MOTOR Task Start\n");
     
     motor_bit = MOTOR_STOP;
     motor_init();

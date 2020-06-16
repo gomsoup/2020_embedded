@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <settings>
     <DebugChecksum>
-        <Checksum>510586009</Checksum>
+        <Checksum>1894014647</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -23,8 +23,8 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <Disassembly>
-        <InstrCount>0</InstrCount>
         <MixedMode>1</MixedMode>
+        <InstrCount>0</InstrCount>
     </Disassembly>
     <CodeCoverage>
         <Enabled>0</Enabled>
@@ -111,7 +111,7 @@
         <Count>0</Count>
     </Breakpoints2>
     <TermIOLog>
-        <LoggingEnabled>_ 1</LoggingEnabled>
+        <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ "$PROJ_DIR$\TermIO.log"</LogFile>
     </TermIOLog>
     <LogFile>

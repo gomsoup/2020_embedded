@@ -2,6 +2,8 @@
 
 #include "motor.h"
 #include "joystick.h"
+#include "magnetic.h"
+#include "ir.h"
 
 //constant define
 #define MAIN_TASK_STK_SIZE 256
@@ -14,6 +16,7 @@ static  CPU_STK         main_init_stack[MAIN_TASK_STK_SIZE];
 // task functions
 static  void  main_init_task(void);
 static  void  main_task_create(void);
+
 
 int  main (void)
 {
@@ -60,7 +63,7 @@ static void main_init_task(void){
 
 static void main_task_create(void){
     OS_ERR  err;
-    
+	
     OSTaskCreate((OS_TCB     *)&motor_tcb,                
              (CPU_CHAR   *)"Motor Task Start",
              (OS_TASK_PTR )motor_task, 
@@ -89,4 +92,33 @@ static void main_task_create(void){
              (void       *)0,
              (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
              (OS_ERR     *)&err);
+	
+    OSTaskCreate((OS_TCB     *)&magnetic_tcb,                
+             (CPU_CHAR   *)"Magnetic task start",
+             (OS_TASK_PTR )magnetic_task, 
+             (void       *)0,
+             (OS_PRIO     )MAGNETIC_TASK_PRIO,
+             (CPU_STK    *)&magnetic_stack[0],
+             (CPU_STK_SIZE)MAGNETIC_TASK_STK_SIZE / 10,
+             (CPU_STK_SIZE)MAGNETIC_TASK_STK_SIZE,
+             (OS_MSG_QTY  )0,
+             (OS_TICK     )MAGNETIC_CLOCK_TICK,
+             (void       *)0,
+             (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
+             (OS_ERR     *)&err);
+	
+	OSTaskCreate((OS_TCB     *)&ir_tcb,                
+             (CPU_CHAR   *)"IR task start",
+             (OS_TASK_PTR )ir_task, 
+             (void       *)0,
+             (OS_PRIO     )IR_TASK_PRIO,
+             (CPU_STK    *)&ir_stack[0],
+             (CPU_STK_SIZE)IR_TASK_STK_SIZE / 10,
+             (CPU_STK_SIZE)IR_TASK_STK_SIZE,
+             (OS_MSG_QTY  )0,
+             (OS_TICK     )IR_CLOCK_TICK,
+             (void       *)0,
+             (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
+             (OS_ERR     *)&err);
+	
 }    

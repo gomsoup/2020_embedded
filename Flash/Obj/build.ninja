@@ -22,7 +22,10 @@ rule browsedata
 #Build steps
 build app.pbi : index app.xcl
 build app_vect.pbi : index app_vect.xcl
+build ir.pbi : index ir.xcl
 build joystick.pbi : index joystick.xcl
+build magnetic.pbi : index magnetic.xcl
+build manager.pbi : index manager.xcl
 build motor.pbi : index motor.xcl
 build os_app_hooks.pbi : index os_app_hooks.xcl
 build bsp.pbi : index bsp.xcl
@@ -81,14 +84,14 @@ build os_time.pbi : index os_time.xcl
 build os_tmr.pbi : index os_tmr.xcl
 build os_var.pbi : index os_var.xcl
 build os_cfg_app.pbi : index os_cfg_app.xcl
-build uCOS-III-Ex2_part0.pbi : link app.pbi app_vect.pbi joystick.pbi motor.pbi os_app_hooks.pbi bsp.pbi bsp_i2c.pbi bsp_int.pbi
-build uCOS-III-Ex2_part1.pbi : link bsp_os.pbi bsp_periph.pbi bsp_ser.pbi bsp_stlm75.pbi stm32f10x_adc.pbi stm32f10x_bkp.pbi stm32f10x_can.pbi stm32f10x_crc.pbi
-build uCOS-III-Ex2_part2.pbi : link stm32f10x_dac.pbi stm32f10x_dbgmcu.pbi stm32f10x_dma.pbi stm32f10x_exti.pbi stm32f10x_flash.pbi stm32f10x_fsmc.pbi stm32f10x_gpio.pbi stm32f10x_i2c.pbi
-build uCOS-III-Ex2_part3.pbi : link stm32f10x_iwdg.pbi stm32f10x_lib.pbi stm32f10x_nvic.pbi stm32f10x_pwr.pbi stm32f10x_rcc.pbi stm32f10x_rtc.pbi stm32f10x_sdio.pbi stm32f10x_spi.pbi
-build uCOS-III-Ex2_part4.pbi : link stm32f10x_systick.pbi stm32f10x_tim.pbi stm32f10x_usart.pbi stm32f10x_wwdg.pbi cpu_c.pbi cpu_core.pbi lib_ascii.pbi lib_math.pbi
-build uCOS-III-Ex2_part5.pbi : link lib_mem.pbi lib_str.pbi os_core.pbi os_cpu_c.pbi os_dbg.pbi os_flag.pbi os_int.pbi os_mem.pbi
-build uCOS-III-Ex2_part6.pbi : link os_msg.pbi os_mutex.pbi os_pend_multi.pbi os_prio.pbi os_q.pbi os_sem.pbi os_stat.pbi os_task.pbi
-build uCOS-III-Ex2_part7.pbi : link os_tick.pbi os_time.pbi os_tmr.pbi os_var.pbi os_cfg_app.pbi
+build uCOS-III-Ex2_part0.pbi : link app.pbi app_vect.pbi ir.pbi joystick.pbi magnetic.pbi manager.pbi motor.pbi os_app_hooks.pbi
+build uCOS-III-Ex2_part1.pbi : link bsp.pbi bsp_i2c.pbi bsp_int.pbi bsp_os.pbi bsp_periph.pbi bsp_ser.pbi bsp_stlm75.pbi stm32f10x_adc.pbi
+build uCOS-III-Ex2_part2.pbi : link stm32f10x_bkp.pbi stm32f10x_can.pbi stm32f10x_crc.pbi stm32f10x_dac.pbi stm32f10x_dbgmcu.pbi stm32f10x_dma.pbi stm32f10x_exti.pbi stm32f10x_flash.pbi
+build uCOS-III-Ex2_part3.pbi : link stm32f10x_fsmc.pbi stm32f10x_gpio.pbi stm32f10x_i2c.pbi stm32f10x_iwdg.pbi stm32f10x_lib.pbi stm32f10x_nvic.pbi stm32f10x_pwr.pbi stm32f10x_rcc.pbi
+build uCOS-III-Ex2_part4.pbi : link stm32f10x_rtc.pbi stm32f10x_sdio.pbi stm32f10x_spi.pbi stm32f10x_systick.pbi stm32f10x_tim.pbi stm32f10x_usart.pbi stm32f10x_wwdg.pbi cpu_c.pbi
+build uCOS-III-Ex2_part5.pbi : link cpu_core.pbi lib_ascii.pbi lib_math.pbi lib_mem.pbi lib_str.pbi os_core.pbi os_cpu_c.pbi os_dbg.pbi
+build uCOS-III-Ex2_part6.pbi : link os_flag.pbi os_int.pbi os_mem.pbi os_msg.pbi os_mutex.pbi os_pend_multi.pbi os_prio.pbi os_q.pbi
+build uCOS-III-Ex2_part7.pbi : link os_sem.pbi os_stat.pbi os_task.pbi os_tick.pbi os_time.pbi os_tmr.pbi os_var.pbi os_cfg_app.pbi
 build uCOS-III-Ex2.pbd : link uCOS-III-Ex2_part0.pbi uCOS-III-Ex2_part1.pbi uCOS-III-Ex2_part2.pbi uCOS-III-Ex2_part3.pbi uCOS-III-Ex2_part4.pbi uCOS-III-Ex2_part5.pbi uCOS-III-Ex2_part6.pbi uCOS-III-Ex2_part7.pbi
 build uCOS-III-Ex2.pbw : browsedata uCOS-III-Ex2.pbd
 

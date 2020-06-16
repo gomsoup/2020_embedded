@@ -1089,10 +1089,28 @@
             <name>$PROJ_DIR$\includes.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\ir.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\ir.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\joystick.c</name>
         </file>
         <file>
             <name>$PROJ_DIR$\joystick.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\magnetic.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\magnetic.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\manager.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\manager.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\motor.c</name>

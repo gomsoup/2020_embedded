@@ -52,6 +52,7 @@ void joystick_init(){
 }
 
 void joystick_task(){
+	printf("JOYSTICK Task Start\n");
     joystick_init();
     
     while(DEF_TRUE){
